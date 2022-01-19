@@ -364,6 +364,7 @@ export class TypeMetadataStorageHost {
     const objectTypeRef = this.resolvers
       .find((el) => isTargetEqual(el, item))
       .typeFn();
+    if (this.unions.find((unionTypeDef) => unionTypeDef.id === objectTypeRef)) return;   
 
     const objectOrInterfaceTypeMetadata =
       this.objectTypes.find(
